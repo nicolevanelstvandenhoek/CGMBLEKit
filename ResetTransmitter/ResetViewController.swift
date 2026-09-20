@@ -175,7 +175,7 @@ extension ResetViewController {
         switch state {
         case .empty, .needsConfiguration, .configured:
             resetButton.setTitle(NSLocalizedString("Reset", comment: "Title of button to begin reset"), for: .normal)
-            resetButton.tintColor = .red
+            resetButton.tintColor = .systemPink
         case .resetting, .completed:
             resetButton.setTitle(NSLocalizedString("Cancel", comment: "Title of button to cancel reset"), for: .normal)
             resetButton.tintColor = .darkGray
