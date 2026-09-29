@@ -178,6 +178,12 @@
             "value" : "%d dager"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d dagen"
+          }
+        },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
@@ -356,6 +362,12 @@
             "value" : "Kalibreringsfeil"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalibratiefout"
+          }
+        },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
@@ -383,6 +395,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sensoren må kalibreres"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalibratie nodig"
           }
         },
         "ro" : {
@@ -1904,6 +1922,12 @@
             "value" : "Sensorens utløpstid, inkludert nedtellingen på startskjermen, beregnes fra sesjonens start ved hjelp av denne verdien."
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Het verlopen van de sensor, inclusief het aftellen op het beginscherm, wordt met deze waarde berekend vanaf de start van de sessie."
+          }
+        },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2219,6 +2243,12 @@
             "value" : "Sensoren sviktet"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sensor defect"
+          }
+        },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2248,6 +2278,12 @@
             "value" : "Sensorens levetid"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Levensduur sensor"
+          }
+        },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2275,6 +2311,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sensoren har stoppet"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sensor gestopt"
           }
         },
         "ro" : {
@@ -2449,6 +2491,12 @@
             "value" : "Sesjonen mislyktes"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sessie mislukt"
+          }
+        },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2476,6 +2524,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signal problem"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signaalprobleem"
           }
         },
         "ro" : {
@@ -2660,6 +2714,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Denne senderen er modifisert av Anubis og støtter utvidede sensorsesjoner. Angi hvor lenge en sensor skal vare før den regnes som utløpt."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deze zender is door Anubis aangepast en ondersteunt verlengde sensorsessies. Stel in hoe lang een sensor meegaat voordat hij als verlopen geldt."
           }
         },
         "ro" : {
@@ -3279,6 +3339,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Oppvarming"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opwarmen"
           }
         },
         "ro" : {
