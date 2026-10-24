@@ -374,6 +374,12 @@
             "value" : "Eroare de calibrare"
           }
         },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalibrationsfel"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -407,6 +413,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Calibrare necesară"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalibrering behövs"
           }
         },
         "zh-Hans" : {
@@ -1252,7 +1264,7 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Laatste Kalibratie"
+            "value" : "Laatste kalibratie"
           }
         },
         "pl" : {
@@ -1395,7 +1407,7 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Laatste Verbinding"
+            "value" : "Laatste verbinding"
           }
         },
         "pl" : {
@@ -1544,7 +1556,7 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Laatste Meting"
+            "value" : "Laatste meting"
           }
         },
         "pl" : {
@@ -1836,7 +1848,7 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Remote Gegevenssynchronisatie"
+            "value" : "Remote gegevenssynchronisatie"
           }
         },
         "pl" : {
@@ -2014,7 +2026,7 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sensor Verlopen"
+            "value" : "Sensor verlopen"
           }
         },
         "pl" : {
@@ -2157,7 +2169,7 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sensor Verloopt"
+            "value" : "Sensor verloopt"
           }
         },
         "pl" : {
@@ -2237,6 +2249,12 @@
             "value" : "Sensorausfall"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur de capteur"
+          }
+        },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2272,6 +2290,12 @@
             "value" : "Sensorlebensdauer"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durée de vie du capteur"
+          }
+        },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2288,6 +2312,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Durata de viață a senzorului"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sensorlivslängd"
           }
         },
         "zh-Hans" : {
@@ -2307,6 +2337,12 @@
             "value" : "Sensor angehalten"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capteur arrêté"
+          }
+        },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2323,6 +2359,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Senzor oprit"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sensor stoppad"
           }
         },
         "zh-Hans" : {
@@ -2485,6 +2527,18 @@
     "Session Failed" : {
       "comment" : "Sensor session failed",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sitzung fehlgeschlagen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Echec de session"
+          }
+        },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2520,6 +2574,12 @@
             "value" : "Signalstörung"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Problème de signal"
+          }
+        },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2536,6 +2596,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Problemă de semnal"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signalproblem"
           }
         },
         "zh-Hans" : {
@@ -3255,7 +3321,7 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Upload Metingen"
+            "value" : "Upload metingen"
           }
         },
         "pl" : {
@@ -3335,6 +3401,12 @@
             "value" : "Aufwärmen"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Préchauffage en cours"
+          }
+        },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3351,6 +3423,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Încălzire"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Värmer upp"
           }
         },
         "zh-Hans" : {
