@@ -8,13 +8,16 @@
 import SwiftUI
 import LoopKit
 import LoopKitUI
-import HealthKit
 import CGMBLEKit
 
 
-extension G5CGMManager: CGMManagerUI {
+extension G5CGMManager: @retroactive CGMManagerUI {
     public static var onboardingImage: UIImage? {
         return nil
+    }
+
+    public static var pickerImage: UIImage? {
+        return UIImage(named: "g5", in: Bundle(for: TransmitterSetupViewController.self), compatibleWith: nil)
     }
 
     public static func setupViewController(bluetoothProvider: BluetoothProvider, displayGlucosePreference: DisplayGlucosePreference, colorPalette: LoopUIColorPalette, allowDebugFeatures: Bool, prefersToSkipUserInteraction: Bool = false) -> SetupUIResult<CGMManagerViewController, CGMManagerUI> {
@@ -49,9 +52,13 @@ extension G5CGMManager: CGMManagerUI {
 }
 
 
-extension G6CGMManager: CGMManagerUI {
+extension G6CGMManager: @retroactive CGMManagerUI {
     public static var onboardingImage: UIImage? {
         return nil
+    }
+
+    public static var pickerImage: UIImage? {
+        return UIImage(named: "g6", in: Bundle(for: TransmitterSetupViewController.self), compatibleWith: nil)
     }
 
     public static func setupViewController(bluetoothProvider: BluetoothProvider, displayGlucosePreference: DisplayGlucosePreference, colorPalette: LoopUIColorPalette, allowDebugFeatures: Bool, prefersToSkipUserInteraction: Bool = false) -> SetupUIResult<CGMManagerViewController, CGMManagerUI> {

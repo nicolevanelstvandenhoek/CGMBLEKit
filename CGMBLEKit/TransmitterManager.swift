@@ -6,6 +6,7 @@
 //
 
 import HealthKit
+import LoopAlgorithm
 import LoopKit
 import ShareClient
 import os.log
@@ -134,8 +135,8 @@ public class TransmitterManager: TransmitterDelegate {
             }
         }()
 
-        let quantity = HKQuantity(unit: .milligramsPerDeciliter, doubleValue: glucoseValue)
-        let trendRate = HKQuantity(unit: .milligramsPerDeciliterPerMinute, doubleValue: trendRateValue)
+        let quantity = LoopQuantity(unit: .milligramsPerDeciliter, doubleValue: glucoseValue)
+        let trendRate = LoopQuantity(unit: .milligramsPerDeciliterPerMinute, doubleValue: trendRateValue)
         let sample = NewGlucoseSample(date: timestamp, quantity: quantity, condition: nil, trend: trend, trendRate: trendRate, isDisplayOnly: false, wasUserEntered: false, syncIdentifier: syncIdentifier)
         self.updateDelegate(with: .newData([sample]))
     }
@@ -343,6 +344,7 @@ public class TransmitterManager: TransmitterDelegate {
         if state.sensorStartOffset != sensorStartOffset {
             mutateState { state in
                 state.sensorStartOffset = sensorStartOffset
+                state.reportedSensorIssue = nil
             }
             if let sessionStartDate = glucose.sessionStartDate {
                 events.append(PersistedCgmEvent(
@@ -355,6 +357,19 @@ public class TransmitterManager: TransmitterDelegate {
             } else {
                 log.error("Ignoring sensor start event with invalid session start time: %{public}@", String(describing: glucose))
             }
+        }
+
+        var sensorIssue: String?
+        mutateState { state in
+            sensorIssue = state.newSensorIssue(for: glucose.state)
+        }
+        if let sensorIssue {
+            events.append(PersistedCgmEvent(
+                date: glucose.readDate,
+                type: .sensorIssue,
+                deviceIdentifier: transmitter.ID,
+                error: CgmEventError(code: sensorIssue, isFatal: glucose.state.sensorFailed)
+            ))
         }
 
         // Filter out future-dated events
@@ -420,7 +435,8 @@ public class TransmitterManager: TransmitterDelegate {
                 isDisplayOnly: glucose.isDisplayOnly,
                 wasUserEntered: glucose.isDisplayOnly,
                 syncIdentifier: glucose.syncIdentifier,
-                device: device
+                device: device,
+                isBackfill: true
             )
         }
 
@@ -503,7 +519,13 @@ extension TransmitterManager {
 
 
 public class G5CGMManager: TransmitterManager, CGMManager {
-    public static let pluginIdentifier: String = "DexG5Transmitter"
+    public var inSignalLoss: Bool = false
+    
+    public var isInoperable: Bool {
+        cgmManagerStatus.isInoperable
+    }
+    
+    public let pluginIdentifier: String = "DexG5Transmitter"
 
     public let localizedTitle = LocalizedString("Dexcom G5", comment: "CGM display title")
 
@@ -540,7 +562,13 @@ public class G5CGMManager: TransmitterManager, CGMManager {
 
 
 public class G6CGMManager: TransmitterManager, CGMManager {
-    public static let pluginIdentifier: String = "DexG6Transmitter"
+    public var inSignalLoss: Bool = false
+    
+    public var isInoperable: Bool {
+        cgmManagerStatus.isInoperable
+    }
+    
+    public let pluginIdentifier: String = "DexG6Transmitter"
 
     public let localizedTitle = LocalizedString("Dexcom G6", comment: "CGM display title")
 
@@ -597,6 +625,15 @@ extension CalibrationError: LocalizedError {
 }
 
 extension CalibrationState {
+    var sensorFailed: Bool {
+        switch self {
+        case .known(.sensorFailure11), .known(.sensorFailure12), .known(.sessionFailure15), .known(.sessionFailure16), .known(.sessionFailure17):
+            return true
+        default:
+            return false
+        }
+    }
+
     public var localizedDescription: String {
         switch self {
         case .known(let state):
@@ -618,9 +655,7 @@ extension CalibrationState {
 
 // MARK: - AlertResponder implementation
 extension G5CGMManager {
-    public func acknowledgeAlert(alertIdentifier: Alert.AlertIdentifier, completion: @escaping (Error?) -> Void) {
-        completion(nil)
-    }
+    public func acknowledgeAlert(alertIdentifier: LoopKit.Alert.AlertIdentifier) async throws { }
 }
 
 // MARK: - AlertSoundVendor implementation
@@ -631,9 +666,7 @@ extension G5CGMManager {
 
 // MARK: - AlertResponder implementation
 extension G6CGMManager {
-    public func acknowledgeAlert(alertIdentifier: Alert.AlertIdentifier, completion: @escaping (Error?) -> Void) {
-        completion(nil)
-    }
+    public func acknowledgeAlert(alertIdentifier: LoopKit.Alert.AlertIdentifier) async throws { }
 }
 
 // MARK: - AlertSoundVendor implementation

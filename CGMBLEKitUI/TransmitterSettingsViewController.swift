@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import LoopAlgorithm
 import SwiftUI
 import HealthKit
 import LoopKit
@@ -166,10 +167,8 @@ class TransmitterSettingsViewController: UITableViewController {
     
     private lazy var sensorExpirationFullFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        //formatter.dateStyle = .full
-        //formatter.timeStyle = .short
-        //formatter.doesRelativeDateFormatting = true
-        formatter.setLocalizedDateFormatFromTemplate("E, MMM d, hh:mm")
+        // j is the hour in the user's preferred cycle; hh would force AM/PM.
+        formatter.setLocalizedDateFormatFromTemplate("EEEMMMdjmm")
         return formatter
     }()
     
@@ -559,7 +558,7 @@ private extension UIAlertController {
 
 
 private extension SettingsTableViewCell {
-    func setGlucose(_ glucose: HKQuantity?, formatter: QuantityFormatter, isDisplayOnly: Bool) {
+    func setGlucose(_ glucose: LoopQuantity?, formatter: QuantityFormatter, isDisplayOnly: Bool) {
         if isDisplayOnly {
             textLabel?.text = LocalizedString("Glucose (Adjusted)", comment: "Describes a glucose value adjusted to reflect a recent calibration")
         } else {
@@ -606,7 +605,7 @@ private struct SensorLifeSettingsView: View {
             }
         }
         .listStyle(.insetGrouped)
-        .onChange(of: sensorLifeDays) { newValue in
+        .onChange(of: sensorLifeDays) { _, newValue in
             onChange(newValue)
         }
     }
